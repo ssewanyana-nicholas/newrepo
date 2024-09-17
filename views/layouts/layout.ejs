@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('../partials/head') %>
+
+<body>
+    <div id="wrapper">
+      <%- include('../partials/header') %> 
+      <%- include('../partials/navigation') %>
+
+        <main>
+          <%- body %>
+        </main>
+
+      <% 
+        
+        const d = new Date(); 
+        const year = d.getFullYear(); 
+      %>
+      <%- include('../partials/footer', { year: year }) %>
+    </div>
+</body>
+
+</html>
