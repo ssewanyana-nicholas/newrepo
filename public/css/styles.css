@@ -82,8 +82,13 @@
 
   .hero h2 {
     font-size: 15px;
+    line-height: 1;
   }
 
+  .front {
+    line-height: 1;
+  }
+ 
   .hero p {
     font-size: 10px;
     color: #115879;
