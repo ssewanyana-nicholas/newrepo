@@ -1,5 +1,6 @@
 body {
-    font-family: Arial, sans-serif;
+    font-family: "Roboto", sans-serif;
+    font-weight: 400;
     background-color: #f4f4f4;
     background-image: url('/images/site/small_check.jpg');
     color: #333;
@@ -216,4 +217,3 @@ footer {
   *              small sizes
   *
   ********************************************************/
-
