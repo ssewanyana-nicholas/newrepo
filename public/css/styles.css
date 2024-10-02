@@ -88,7 +88,7 @@
   .front {
     line-height: 1;
   }
- 
+
   .hero p {
     font-size: 10px;
     color: #115879;
@@ -228,7 +228,7 @@
   .front {
     line-height: 1;
   }
- 
+
   .hero p {
     font-size: 16px;
     color: #115879;
@@ -288,5 +288,15 @@
 
   .reviews ul li {
     font-size: 1rem;
+  }
+
+  #inv-display {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1200px) {
+  #inv-display {
+      grid-template-columns: repeat(2, 1fr);
   }
 }

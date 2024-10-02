@@ -217,3 +217,47 @@ footer {
   *              small sizes
   *
   ********************************************************/
+
+  /* Inventory Grid */
+#inv-display {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+    padding: 20px;
+    margin: 0;
+    background-color: #f4f4f4;
+}
+
+#inv-display li {
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    overflow: hidden;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease;
+}
+
+#inv-display li:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+#inv-display img {
+    width: 100%;
+    height: auto;
+}
+
+.namePrice {
+    padding: 10px;
+    text-align: center;
+}
+
+.namePrice h2 {
+    font-size: 1.2em;
+    margin: 10px 0;
+}
+
+.namePrice span {
+    font-size: 1.1em;
+    font-weight: bold;
+    color: #007BFF;
+}
