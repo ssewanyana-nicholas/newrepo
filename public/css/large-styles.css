@@ -218,7 +218,7 @@ footer {
   *
   ********************************************************/
 
-  /* Inventory Grid */
+/* Inventory Grid */
 #inv-display {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
@@ -241,6 +241,10 @@ footer {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
 }
 
+#inv-display li a {
+    color: black;
+}
+
 #inv-display img {
     width: 100%;
     height: auto;
@@ -259,5 +263,98 @@ footer {
 .namePrice span {
     font-size: 1.1em;
     font-weight: bold;
-    color: #007BFF;
+    color: black;
+}
+
+/* Container for the vehicle detail section */
+.vehicle-detail-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 20px;
+    margin: 0 auto;
+    max-width: 1100px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Vehicle Image Styling */
+.vehicle-image {
+    flex: 2;
+    padding: 20px;
+}
+
+.vehicle-image img {
+    max-width: 100%;
+    height: auto;
+    /* Maintain aspect ratio */
+    border-radius: 10px;
+    /* Rounded corners */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+    /* Subtle shadow */
+}
+
+/* Styling the vehicle information section */
+.vehicle-info {
+    flex: 2;
+    /* Take up more space than the image */
+    margin-left: 20px;
+    /* Space between image and info */
+}
+
+/* Main title for vehicle name */
+.vehicle-info h1 {
+    font-size: 2.4em;
+    font-weight: bold;
+    color: black;
+    margin-bottom: 10px;
+}
+
+/* Price styling */
+.vehicle-price {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: #000c1a;
+    /* Blue color for price */
+    margin-bottom: 10px;
+}
+
+/* Vehicle description styling */
+.vehicle-description {
+    font-size: 1.1em;
+    line-height: 1.5;
+    color: black;
+    margin-bottom: 15px;
+}
+
+/* Additional details styling (Year, Miles, Color) */
+.vehicle-details {
+    font-size: 1.1em;
+    color: black;
+    /* Light gray background */
+    padding: 10px;
+    border-radius: 8px;
+    margin-top: 10px;
+}
+
+.vehicle-details p {
+    margin: 8px 0;
+}
+
+.vehicle-details strong {
+    font-weight: bold;
+}
+
+/* Back link styling */
+.back-link {
+    display: flex;
+    margin-top: 20px;
+    font-size: 1em;
+    color: #1600db;
+    text-decoration: none;
+}
+
+.back-link:hover {
+    text-decoration: underline;
 }

@@ -293,6 +293,28 @@
   #inv-display {
     grid-template-columns: 1fr;
   }
+
+  .vehicle-detail-container {
+    flex-direction: column; /* Stack elements vertically on smaller screens */
+    align-items: center;
+    padding: 15px;
+  }
+
+  .vehicle-info {
+    margin-right: 0; /* Reset margin on smaller screens */
+    text-align: center; /* Center align text in info section */
+    font-size: 12px;
+  }
+
+  .vehicle-image {
+    margin-bottom: 20px; /* Space between image and info */
+    order: -1;
+  }
+
+  * {
+    border: 2px solid black;
+  }
+
 }
 
 @media (min-width: 769px) and (max-width: 1200px) {
