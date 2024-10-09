@@ -1,0 +1,66 @@
+<% if (title) { %>
+    <h1 class="register-title">
+        <%= title %>
+    </h1>
+    <% } else { %>
+        <h1 class="register-title">Login</h1>
+        <% } %>
+
+            <%- messages() %>
+
+                <% if (errors) { %>
+                    <ul class="notice">
+                        <% errors.array().forEach(error=> { %>
+                            <li>
+                                <%= error.msg %>
+                            </li>
+                            <% }) %>
+                    </ul>
+                    <% } %>
+
+
+                        <!-- Registration Form -->
+                        <form action="/account/register" method="POST" class="registration-form">
+                            <h2 class="registration-heading">All fields are required*</h2>
+                            <!-- First Name Field -->
+                            <div class="registration-form-group">
+                                <label for="account_firstname" class="registration-label">First Name</label>
+                                <input type="text" id="account_firstname" name="account_firstname"
+                                    class="registration-input" required>
+                            </div>
+
+                            <!-- Last Name Field -->
+                            <div class="registration-form-group">
+                                <label for="account_lastname" class="registration-label">Last Name</label>
+                                <input type="text" id="account_lastname" name="account_lastname"
+                                    class="registration-input" required>
+                            </div>
+
+                            <!-- Email Field -->
+                            <div class="registration-form-group">
+                                <label for="account_email" class="registration-label">Email</label>
+                                <input type="email" id="account_email" name="account_email"
+                                    placeholder="Enter a valid email address" class="registration-input" required>
+                            </div>
+
+                            <!-- Password Field with Validation -->
+                            <div class="registration-form-group">
+                                <label for="account_password" class="registration-label">Password</label>
+                                <input type="password" id="account_password" name="account_password"
+                                    class="registration-input" required minlength="12"
+                                    pattern="^(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*()_+=-]).{12,}$"
+                                    title="Password must be at least 12 characters long, contain at least 1 capital letter, 1 number, and 1 special character (!@#$%^&*()_+=-)">
+                            </div>
+
+                            <label>
+                                <input type="checkbox" id="togglePassword"> Show Password
+                            </label>
+                            <span>Passwords must be at least 12 characters and contain at least 1 number, 1 capital
+                                letter, and
+                                1 special character.</span>
+
+                            <!-- Submit Button -->
+                            <button type="submit" class="registration-btn">Register</button>
+                        </form>
+
+                        <script src="/js/script.js"></script>

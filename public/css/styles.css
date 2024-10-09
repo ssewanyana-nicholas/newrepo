@@ -149,7 +149,78 @@
   .reviews ul li {
     font-size: 1rem;
   }
+
+  .login-form {
+    max-width: 80%;
+    /* Reduce the form width on smaller screens */
+    margin: 20px auto;
+    /* Adjust margin for mobile */
+    padding: 15px;
+    /* Reduce padding on mobile */
+  }
+
+  .login-title {
+    font-size: 1.5em;
+    /* Decrease font size for mobile */
+  }
 }
+
+.form-group {
+  margin-bottom: 15px;
+  /* Space between form groups */
+}
+
+.form-input {
+  width: 100%;
+  /* Full-width input fields */
+  padding: 10px;
+  /* Space inside the input */
+  border: 1px solid #007bff;
+  /* Border color */
+  border-radius: 4px;
+  /* Rounded corners for input */
+  transition: border-color 0.3s;
+  /* Smooth transition for focus effect */
+}
+
+.form-input:focus {
+  border-color: #0056b3;
+  /* Darker border on focus */
+  outline: none;
+  /* Removes default outline */
+}
+
+.form-button {
+  width: 100%;
+  /* Full-width button */
+  padding: 10px;
+  /* Space inside the button */
+  background-color: #007bff;
+  /* Button background color */
+  color: white;
+  /* Text color */
+  border: none;
+  /* Removes border */
+  border-radius: 4px;
+  /* Rounded corners for button */
+  cursor: pointer;
+  /* Pointer cursor on hover */
+  transition: background-color 0.3s;
+  /* Smooth transition on hover */
+}
+
+.form-button:hover {
+  background-color: #0056b3;
+  /* Darker button color on hover */
+}
+
+.register-link {
+  text-align: center;
+  /* Center align registration link */
+  margin-top: 10px;
+  /* Space above the link */
+}
+
 
 @media only screen and (max-width: 1024px) {
   #wrapper {
@@ -295,19 +366,23 @@
   }
 
   .vehicle-detail-container {
-    flex-direction: column; /* Stack elements vertically on smaller screens */
+    flex-direction: column;
+    /* Stack elements vertically on smaller screens */
     align-items: center;
     padding: 15px;
   }
 
   .vehicle-info {
-    margin-right: 0; /* Reset margin on smaller screens */
-    text-align: center; /* Center align text in info section */
+    margin-right: 0;
+    /* Reset margin on smaller screens */
+    text-align: center;
+    /* Center align text in info section */
     font-size: 12px;
   }
 
   .vehicle-image {
-    margin-bottom: 20px; /* Space between image and info */
+    margin-bottom: 20px;
+    /* Space between image and info */
     order: -1;
   }
 
@@ -315,6 +390,32 @@
 
 @media (min-width: 769px) and (max-width: 1200px) {
   #inv-display {
-      grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .login-form {
+    max-width: 100%;
+    /* Allow form to take full width on small screens */
+    margin: 10px;
+    /* Adjust margins for small screens */
+    padding: 10px;
+    /* Reduce padding further on small screens */
+  }
+
+  .login-title {
+    font-size: 1.3em;
+    /* Further decrease font size for very small screens */
+  }
+}
+
+@media (max-width: 768px) {
+  .registration-form {
+    padding: 15px;
+  }
+
+  .registration-input {
+    font-size: 0.9rem;
   }
 }

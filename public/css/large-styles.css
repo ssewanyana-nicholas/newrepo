@@ -41,6 +41,7 @@ header {
     font-size: 40px;
 }
 
+
 /*******************************************************
   *
   *              Navigation Area
@@ -357,4 +358,158 @@ footer {
 
 .back-link:hover {
     text-decoration: underline;
+}
+
+/*******************************************************
+  *
+  *              Form Area login
+  *
+  ********************************************************/
+/* Unique styles for the login form */
+.login-title {
+    text-align: center;
+    font-size: 2em;
+    color: #333;
+    margin-bottom: 20px;
+    font-family: 'Arial', sans-serif;
+}
+
+.login-form {
+    max-width: 400px;
+    /* Restricts form width */
+    margin: 50px auto;
+    /* Centers the form vertically and horizontally */
+    padding: 20px;
+    /* Adds space inside the form */
+    border: 1px solid #007bff;
+    /* Border color */
+    border-radius: 8px;
+    /* Rounded corners */
+    background-color: #dfe3e6;
+    /* Light blue background */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    /* Subtle shadow effect */
+}
+
+.form-group {
+    margin-bottom: 15px;
+    /* Space between form groups */
+}
+
+.form-input {
+    max-width: 380px;
+    /* Full-width input fields */
+    border-radius: 4px;
+    /* Rounded corners for input */
+    transition: border-color 0.3s;
+    /* Smooth transition for focus effect */
+}
+
+/*******************************************************
+  *
+  *              Form Area registration
+  *
+  ********************************************************/
+/* Styling the registration form */
+
+span {
+    display: block;
+    /* Ensures the span takes up the full width */
+    margin-top: 5px;
+    /* Adds space above the span */
+    font-size: 14px;
+    /* Sets the font size */
+    color: #555;
+    /* Sets the text color */
+    background-color: #f9f9f9;
+    /* Light background color for better visibility */
+    padding: 10px;
+    /* Adds padding around the text */
+    border-left: 4px solid #007BFF;
+    /* Adds a left border for emphasis */
+    border-radius: 4px;
+    /* Rounds the corners */
+}
+
+
+input:required:invalid,
+input:focus:invalid {
+    background-image: url(/images/site/invalid.png);
+    background-position: right top;
+    background-repeat: no-repeat;
+    background-size: 30px 30px;
+}
+
+input:required:valid {
+    background-image: url(/images/site/valid.webp);
+    background-position: right top;
+    background-repeat: no-repeat;
+    background-size: 30px 30px;
+}
+
+/* flash messeges*/
+
+.notice,
+.error_notice {
+    color: red;
+    font-size: 20px;
+}
+
+.registration-heading {
+    text-align: center;
+    color: #a10c0c;
+    font-size: 1.5em;
+    margin-bottom: 20px;
+}
+
+.registration-form {
+    max-width: 400px;
+    margin: 40px auto;
+    padding: 20px;
+    background-color: #f7f7f7;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.registration-form-group {
+    margin-bottom: 15px;
+}
+
+.registration-label {
+    font-weight: 600;
+    display: block;
+    margin-bottom: 5px;
+    color: #333;
+}
+
+.registration-input {
+    width: 380px;
+    padding: 10px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    transition: border-color 0.3s ease;
+}
+
+.registration-input:focus {
+    border-color: #007bff;
+    outline: none;
+    box-shadow: 0 0 8px rgba(0, 123, 255, 0.25);
+}
+
+.registration-btn {
+    width: 100%;
+    padding: 10px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.registration-btn:hover {
+    background-color: #0056b3;
 }
