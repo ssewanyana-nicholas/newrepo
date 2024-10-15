@@ -1,0 +1,61 @@
+<% if (title) { %>
+    <h1 class="inv-title">
+        <%= title %>
+    </h1>
+    <% } else { %>
+        <h1 class="inv-title">Add a New Vehicle</h1>
+        <% } %>
+
+            <% if (Array.isArray(messages) && messages.length> 0) { %>
+                <div class="flash-messages">
+                    <% messages.forEach(function(message) { %>
+                        <div class="flash-message notice">
+                            <p>
+                                <%= message %>
+                            </p>
+                        </div>
+                        <% }); %>
+                </div>
+                <% } %>
+
+                    <form action="/inv/add-vehicle" method="POST" class="inventory-form">
+                        <label for="classification" class="inventory-label">Classification:</label>
+                        <select class="inventory-select" id="classification" name="classificationId" required>
+                            <option value="">Choose a Classification</option>
+                            <% classifications.forEach(({ classification_id, classification_name })=> { %>
+                                <option value="<%= classification_id %>">
+                                    <%= classification_name %>
+                                </option>
+                                <% }) %>
+                        </select>
+                        <label for="make" class="inventory-label">Make:</label>
+                        <input class="inventory-input" type="text" id="make" name="inv_make" required minlength="3">
+
+                        <label for="model" class="inventory-label">Model:</label>
+                        <input class="inventory-input" type="text" id="model" name="inv_model" required minlength="3">
+
+                        <label for="year" class="inventory-label">Year:</label>
+                        <input class="inventory-input" type="number" id="year" name="inv_year" required min="1900"
+                            max="2024">
+
+                        <label for="description" class="inventory-label">Description:</label>
+                        <textarea class="inventory-textarea" id="description" name="inv_description"
+                            required></textarea>
+
+                        <label for="image" class="inventory-label">Image Path:</label>
+                        <input class="inventory-input" type="text" id="image" name="inv_image" required>
+
+                        <label for="thumbnail" class="inventory-label">Thumbnail Path:</label>
+                        <input class="inventory-input" type="text" id="thumbnail" name="inv_thumbnail" required>
+
+                        <label for="price" class="inventory-label">Price:</label>
+                        <input class="inventory-input" type="number" id="price" name="inv_price" required step="0.01">
+
+                        <label for="miles" class="inventory-label">Miles:</label>
+                        <input class="inventory-input" type="number" id="miles" name="inv_miles" required>
+
+                        <label for="color" class="inventory-label">Color:</label>
+                        <input class="inventory-input" type="text" id="color" name="inv_color" required>
+
+                        <button class="inventory-button" type="submit">Add Vehicle</button>
+                    </form>

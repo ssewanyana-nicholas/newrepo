@@ -513,3 +513,236 @@ input:required:valid {
 .registration-btn:hover {
     background-color: #0056b3;
 }
+
+* Management Page Styles */ .management-page {
+    max-width: 800px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+/* Headings */
+.management-page h1 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+/* Buttons */
+.management-page__links {
+    margin: 20px 0;
+}
+
+.management-page__btn {
+    display: inline-block;
+    margin: 10px;
+    padding: 12px 20px;
+    background-color: #007bff;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.management-page__btn:hover {
+    background-color: #0056b3;
+}
+
+/* Footer */
+.management-page__footer {
+    margin-top: 40px;
+    font-size: 0.9rem;
+    color: #555;
+}
+
+.management-page__footer p {
+    margin: 0;
+}
+
+.management-page__error-link {
+    display: block;
+    margin-top: 10px;
+    color: #e74c3c;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.management-page__error-link:hover {
+    color: #c0392b;
+}
+
+/* Classification Page Styles */
+.classification-page {
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.classification-page h1 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    text-align: center;
+    color: #333;
+}
+
+.classification-page__form-container {
+    background-color: #00a6d6;
+    /* Light blue background */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: left;
+}
+
+.classification-page__required-text {
+    color: #9e0000;
+    font-style: italic;
+    margin-bottom: 10px;
+    font-size: 0.9rem;
+}
+
+.classification-page__label {
+    display: block;
+    font-size: 1rem;
+    font-weight: bold;
+    color: #070707;
+    margin-bottom: 5px;
+}
+
+.classification-page__description {
+    font-size: 0.85rem;
+    color: #1d1c1c;
+    margin-bottom: 15px;
+}
+
+.classification-page__input {
+    width: 100%;
+    padding: 10px;
+    font-size: 1rem;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.classification-page__btn {
+    display: inline-block;
+    padding: 12px 20px;
+    background-color: #08325f;
+    color: #fff;
+    text-decoration: none;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+}
+
+.classification-page__btn:hover {
+    background-color: #0056b3;
+}
+
+/* Footer */
+.classification-page__footer {
+    margin-top: 40px;
+    font-size: 0.9rem;
+    text-align: center;
+    color: #555;
+}
+
+.classification-page__footer p {
+    margin: 0;
+}
+
+.classification-page__error-link {
+    display: block;
+    margin-top: 10px;
+    color: #e74c3c;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.classification-page__error-link:hover {
+    color: #c0392b;
+}
+
+.inventory-form {
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    max-width: 600px;
+    margin: 20px auto;
+    font-family: Arial, sans-serif;
+    /* Add a font family for the form */
+}
+
+.inventory-label {
+    font-weight: bold;
+    margin-top: 15px;
+    display: block;
+    color: #333;
+}
+
+.inventory-input,
+.inventory-select,
+.inventory-textarea {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    transition: border-color 0.3s;
+}
+
+.inventory-input:focus,
+.inventory-select:focus,
+.inventory-textarea:focus {
+    border-color: #007bff;
+    outline: none;
+}
+
+.inventory-textarea {
+    height: 100px;
+    resize: none;
+    /* Prevents resizing of the textarea */
+}
+
+/* Button Styles */
+.inventory-button {
+    background-color: #28a745;
+    /* Green color for success */
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    padding: 10px 15px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.inventory-button:hover {
+    background-color: #218838;
+    /* Darker green on hover */
+    transform: translateY(-1px);
+    /* Slight lift effect */
+}
+
+.inventory-button:active {
+    background-color: #1e7e34;
+    /* Even darker shade on click */
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .inventory-form {
+        padding: 15px;
+    }
+}

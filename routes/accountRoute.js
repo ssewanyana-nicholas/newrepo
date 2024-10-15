@@ -21,5 +21,13 @@ router.post(
 // Route to process the registration form with error handling
 router.post('/register', utilities.handleErrors(accountsController.registerAccount));
 
+// Process the login attempt
+router.post(
+    "/login",
+    regValidate.loginRules(),          // Validate login data
+    regValidate.checkLoginData,        // Check for validation errors
+    utilities.handleErrors(accountsController.loginAccount)     // Handle login logic
+);
+
 module.exports = router;
 

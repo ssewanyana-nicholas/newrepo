@@ -25,22 +25,23 @@
                             <!-- First Name Field -->
                             <div class="registration-form-group">
                                 <label for="account_firstname" class="registration-label">First Name</label>
-                                <input type="text" id="account_firstname" name="account_firstname"
-                                    class="registration-input" required>
+                                <input type="text" id="accountFirstname" name="account_firstname"
+                                    class="registration-input" required value="<%= locals.account_firstname %>">
                             </div>
 
                             <!-- Last Name Field -->
                             <div class="registration-form-group">
                                 <label for="account_lastname" class="registration-label">Last Name</label>
-                                <input type="text" id="account_lastname" name="account_lastname"
-                                    class="registration-input" required>
+                                <input type="text" id="accountLastname" name="account_lastname"
+                                    class="registration-input" required value="<%= locals.account_lastname %>">
                             </div>
 
                             <!-- Email Field -->
                             <div class="registration-form-group">
                                 <label for="account_email" class="registration-label">Email</label>
-                                <input type="email" id="account_email" name="account_email"
-                                    placeholder="Enter a valid email address" class="registration-input" required>
+                                <input type="email" id="accountEmail" name="account_email"
+                                    placeholder="Enter a valid email address" class="registration-input" required
+                                    value="<%= locals.account_email %>">
                             </div>
 
                             <!-- Password Field with Validation -->

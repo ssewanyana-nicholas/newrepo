@@ -8,7 +8,7 @@
 
             <!-- Display flash messages -->
             <%- messages() %>
-                <form action="/account/login" method="POST" class="login-form">
+                <form action="/account/login" method="POST" class="login-form" id="loginForm" >
                     <div class="form-group">
                         <label for="email">Email:</label>
                         <input type="email" name="account_email" placeholder="username or email" id="account_email"
@@ -16,7 +16,7 @@
                     </div>
                     <div class="form-group">
                         <label for="account_password">Password:</label>
-                        <input type="password" name="account_password" id="account_password" class="form-input"
+                        <input type="password" name="account_password" id="accountPassword" class="form-input"
                             required>
                     </div>
                     <button type="submit" class="form-button">Login</button>

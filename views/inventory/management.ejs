@@ -1,0 +1,30 @@
+<% if (title) { %>
+    <h1 class="man-title">
+        <%= title %>
+    </h1>
+    <% } else { %>
+        <h1 class="man-title">Vehicle Management</h1>
+        <% } %>
+
+            <% if (messages && messages.length> 0) { %>
+                <div class="flash-messages">
+                    <% messages.forEach(function(message) { %>
+                        <div class="flash-message notice">
+                            <p>
+                                <%= message %>
+                            </p>
+                        </div>
+                        <% }); %>
+                </div>
+                <% } %>
+
+                    <main class="management-page">
+
+                        <div class="management-page__links">
+                            <a href="inv/add-classification" class="management-page__btn">Add New Classification</a>
+                            <a href="inv/add-vehicle" class="management-page__btn">Add New Vehicle</a>
+                        </div>
+
+                        <a href="#" class="management-page__error-link">Error Link</a>
+
+                    </main>

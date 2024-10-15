@@ -1,0 +1,30 @@
+<% if (title) { %>
+    <h1 class="cla-title">
+        <%= title %>
+    </h1>
+<% } else { %>
+    <h1 class="cla-title">Add New Classification</h1>
+<% } %>
+
+<%- messages() %>
+
+<main class="classification-page">
+    <section class="classification-page__form-container">
+        <p class="classification-page__required-text">Field is required.</p>
+        <form id="classification-form" action="/classification/add" method="POST"
+              onsubmit="return validateForm()">
+            <label for="classification_name" class="classification-page__label">Classification Name</label>
+            <p class="classification-page__description">Name must be alphabetic characters only and cannot
+                contain spaces.</p>
+            <input type="text" id="classification_name" name="classification_name"
+                   class="classification-page__input" required 
+                   pattern="^[A-Za-z]+$" 
+                   title="Please enter alphabetic characters only (no spaces or numbers)" 
+                   oninput="preventSpaces(event)">
+
+            <button type="submit" class="classification-page__btn">Add Classification</button>
+        </form>
+    </section>
+    <a href="#" class="classification-page__error-link">Error Link</a>
+</main>
+        <script src="/js/script.js"></script>
