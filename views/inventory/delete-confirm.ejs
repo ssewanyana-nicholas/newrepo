@@ -1,0 +1,47 @@
+<% if (title) { %>
+    <h1 class="inv-title">
+        <%= title %>
+    </h1>
+    <% } else { %>
+        <h1 class="inv-title">Edit the vehicle inventory</h1>
+        <% } %>
+
+            <% if (Array.isArray(messages) && messages.length> 0) { %>
+                <div class="flash-messages">
+                    <% messages.forEach(function(message) { %>
+                        <div class="flash-message notice">
+                            <p>
+                                <%= message %>
+                            </p>
+                        </div>
+                        <% }); %>
+                </div>
+                <% } %>
+                    <p>Please Confirm Deletion - The deletion is permanent</p>
+                    <form action="/inv/delete" method="POST" class="inventory-form" id="deleteForm">
+                        <!-- Hidden field for inv_id -->
+                        <input type="hidden" name="inv_id" value="<%= inv_id %>">
+
+                            <!-- Make field -->
+                            <label for="make" class="inventory-label">Make:</label>
+                            <input class="inventory-input" type="text" id="make" readonly name="inv_make" required minlength="3"
+                                value="<%= inv_make %>">
+
+                            <!-- Model field -->
+                            <label for="model" class="inventory-label">Model:</label>
+                            <input class="inventory-input" type="text" readonly id="model" name="inv_model" required
+                                minlength="3" value="<%= inv_model %>">
+
+                            <!-- Year field -->
+                            <label for="year" class="inventory-label">Year:</label>
+                            <input class="inventory-input" type="number"  readonly id="year" name="inv_year" required min="1900"
+                                max="2100" value="<%= inv_year %>">
+
+                            <!-- Price field -->
+                            <label for="price" class="inventory-label">Price:</label>
+                            <input class="inventory-input" type="number" readonly id="price" name="inv_price" required min="0"
+                                step="0.01" value="<%= inv_price %>">
+
+                            <!-- Submit button -->
+                            <button type="submit" class="inventory-btn">Delete Vehicle</button>
+                    </form>

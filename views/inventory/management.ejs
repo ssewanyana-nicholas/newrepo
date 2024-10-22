@@ -6,7 +6,7 @@
         <h1 class="man-title">Vehicle Management</h1>
         <% } %>
 
-            <% if (messages && messages.length> 0) { %>
+            <% if (Array.isArray(messages) && messages.length> 0) { %>
                 <div class="flash-messages">
                     <% messages.forEach(function(message) { %>
                         <div class="flash-message notice">
@@ -17,7 +17,6 @@
                         <% }); %>
                 </div>
                 <% } %>
-
                     <main class="management-page">
 
                         <div class="management-page__links">
@@ -26,5 +25,15 @@
                         </div>
 
                         <a href="#" class="management-page__error-link">Error Link</a>
+
+                        <table id="inventoryDisplay"></table>
+
+                        <p>Choose the Classification to see those inventory items</p>
+
+                        <%- classificationSelect %>
+
+                            <noscript>JavaScript must be enabled to use this page.</noscript>
+
+                            <script src="../../js/inventory.js"></script>
 
                     </main>

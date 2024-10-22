@@ -1,9 +1,12 @@
 <header class="top-header">
-
     <span class="siteName">
         <a href="/" class="cse-motors">CSE Motors</a>
     </span>
     <div class="tools">
-        <a href="/account/login" class="acc">My Account</a>
+        <% if (loggedin) { %>
+            <a href="/account/logout" class="logout">Welcome <%= accountData.account_firstname %> logout</a>
+        <% } else { %>
+            <a href="/account/login" class="acc">My Account</a>
+        <% } %>
     </div>
 </header>

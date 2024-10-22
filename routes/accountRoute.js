@@ -6,6 +6,7 @@ const regValidate = require('../utilities/account-validation');
 
 // Route to deliver login view
 router.get("/login", utilities.handleErrors(accountsController.buildLogin)); // Accessed via /account/login
+router.get('/logout', accountsController.logout);
 
 // Route to deliver register view
 router.get("/register", utilities.handleErrors(accountsController.buildRegister)); // Accessed via /account/register
@@ -21,13 +22,31 @@ router.post(
 // Route to process the registration form with error handling
 router.post('/register', utilities.handleErrors(accountsController.registerAccount));
 
-// Process the login attempt
+// Process the login route
 router.post(
     "/login",
     regValidate.loginRules(),          // Validate login data
     regValidate.checkLoginData,        // Check for validation errors
-    utilities.handleErrors(accountsController.loginAccount)     // Handle login logic
+    utilities.handleErrors(accountsController.accountLogin)     // Handle login logic
 );
 
+router.get('/',
+    utilities.checkLogin,
+    accountsController.accountManagementView);
+
+// GET route to deliver the account update view
+router.get('/update/:account_id', 
+    utilities.handleErrors(accountsController.getAccountUpdateView));
+
+// POST route to process account updates
+router.post('/update/:account_id', 
+    regValidate.validateUpdate, 
+    utilities.handleErrors(accountsController.processAccountUpdate));
+
+// POST route to process password updates
+router.post('/update-password', 
+    regValidate.validatePassword, 
+    utilities.handleErrors(accountsController.processPasswordUpdate));
+    
 module.exports = router;
 

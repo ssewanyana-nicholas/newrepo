@@ -1,0 +1,78 @@
+<% if (title) { %>
+    <h1 class="inv-title">
+        <%= title %>
+    </h1>
+    <% } else { %>
+        <h1 class="inv-title">Edit the vehicle inventory</h1>
+        <% } %>
+
+            <% if (Array.isArray(messages) && messages.length> 0) { %>
+                <div class="flash-messages">
+                    <% messages.forEach(function(message) { %>
+                        <div class="flash-message notice">
+                            <p>
+                                <%= message %>
+                            </p>
+                        </div>
+                        <% }); %>
+                </div>
+                <% } %>
+
+                    <form action="/inv/update" method="POST" class="inventory-form" id="updateForm">
+                        <!-- Hidden field for inv_id -->
+                        <input type="hidden" name="inv_id" value="<%= inv_id %>">
+
+                        <!-- Classification dropdown -->
+                        <label for="classification" class="inventory-label">Classification:</label>
+                        <%- classificationSelect %>
+
+                            <!-- Make field -->
+                            <label for="make" class="inventory-label">Make:</label>
+                            <input class="inventory-input" type="text" id="make" name="inv_make" required minlength="3"
+                                value="<%= inv_make %>">
+
+                            <!-- Model field -->
+                            <label for="model" class="inventory-label">Model:</label>
+                            <input class="inventory-input" type="text" id="model" name="inv_model" required
+                                minlength="3" value="<%= inv_model %>">
+
+                            <!-- Year field -->
+                            <label for="year" class="inventory-label">Year:</label>
+                            <input class="inventory-input" type="number" id="year" name="inv_year" required min="1900"
+                                max="2100" value="<%= inv_year %>">
+
+                            <!-- Description field -->
+                            <label for="description" class="inventory-label">Description:</label>
+                            <textarea class="inventory-input" id="description" name="inv_description" required
+                                minlength="10"><%= inv_description %></textarea>
+
+                            <!-- Image URL field -->
+                            <label for="image" class="inventory-label">Image Path:</label>
+                            <input class="inventory-input" type="text" id="image" name="inv_image" required
+                                value="<%= inv_image %>">
+
+                            <!-- Thumbnail URL field -->
+                            <label for="thumbnail" class="inventory-label">Thumbnail Path:</label>
+                            <input class="inventory-input" type="text" id="thumbnail" name="inv_thumbnail" required
+                                value="<%= inv_thumbnail %>">
+
+                            <!-- Price field -->
+                            <label for="price" class="inventory-label">Price:</label>
+                            <input class="inventory-input" type="number" id="price" name="inv_price" required min="0"
+                                step="0.01" value="<%= inv_price %>">
+
+                            <!-- Miles field -->
+                            <label for="miles" class="inventory-label">Miles:</label>
+                            <input class="inventory-input" type="number" id="miles" name="inv_miles" required min="0"
+                                value="<%= inv_miles %>">
+
+                            <!-- Color field -->
+                            <label for="color" class="inventory-label">Color:</label>
+                            <input class="inventory-input" type="text" id="color" name="inv_color" required
+                                minlength="3" value="<%= inv_color %>">
+
+                            <!-- Submit button -->
+                            <button type="submit" class="inventory-btn">Update Vehicle</button>
+                    </form>
+
+                    <script src="/js/inv-update.js"></script>

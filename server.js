@@ -19,6 +19,7 @@ const pool = require('./database/');
 const accountRoutes = require("./routes/accountRoute");
 const bodyParser = require("body-parser");
 const classificationRoute = require("./routes/classificationRoute");
+const cookieParser = require("cookie-parser");
 
 
 /* ***********************
@@ -55,6 +56,10 @@ app.set("view engine", "ejs");
 app.use(expressLayouts);
 app.set("layout", "./layouts/layout"); // Set the layout file
 
+app.use(cookieParser());
+
+app.use(utilities.checkJWTToken);
+
 /* ***********************
  * Routes
  *************************/
@@ -69,7 +74,6 @@ app.use("/inv", inventoryRoute);
 app.use("/account", accountRoutes);
 // classification routes
 app.use("/classification", classificationRoute);
-
 
 // File Not Found Route - must be last route in list
 app.use(async (req, res, next) => {

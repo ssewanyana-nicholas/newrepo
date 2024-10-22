@@ -1,0 +1,34 @@
+<main class="account-main">
+    <h1>Account Management</h1>
+
+    <!-- Flash message display -->
+    <% if (flash) { %>
+        <p class="flash-message">
+            <%= flash %>
+        </p>
+        <% } %>
+
+            <!-- Error display -->
+            <% if (errors.length> 0) { %>
+                <ul class="error-list">
+                    <% errors.forEach(error=> { %>
+                        <li class="error-item">
+                            <%= error.msg %>
+                        </li>
+                        <% }) %>
+                </ul>
+                <% } %>
+
+                    <!-- Greet the user based on their account type -->
+                    <h2>Welcome back <%= firstName %>
+                    </h2>
+
+                    <!-- Conditionally render Inventory Management for Employee/Admin -->
+                    <% if (accountType==='Employee' || accountType==='Admin' ) { %>
+                        <h3>Inventory Management</h3>
+                        <p><a href="/inv">Go to Inventory Management</a></p>
+                        <% } %>
+
+                            <!-- Update account link, available to all users -->
+                            <p><a href="/account/update/<%= accountData.account_id %>">Update Account Information</a></p>
+</main>

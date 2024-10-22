@@ -1,6 +1,8 @@
 const Classification = require("../models/classification-model")
 const invModel = require("../models/inventory-model")
 const Util = {}
+const jwt = require("jsonwebtoken")
+require("dotenv").config()
 
 /* ************************
  * Constructs the nav HTML unordered list
@@ -9,22 +11,22 @@ Util.getNav = async function (req, res, next) {
     try {
         // Fetch classifications from the database
         const data = await Classification.findAllClassifications();
-        
+
         // Initialize the navigation list
         let list = "<ul>";
         list += '<li><a href="/" title="Home page">Home</a></li>';
-        
+
         // Check if data is an array before iterating
         if (Array.isArray(data)) {
             data.forEach((row) => {
                 list += "<li>";
-                list += 
-                    '<a href="/inv/type/' + 
-                    row.classification_id + 
-                    '" title="See our inventory of ' + 
-                    row.classification_name + 
-                    ' vehicles">' + 
-                    row.classification_name + 
+                list +=
+                    '<a href="/inv/type/' +
+                    row.classification_id +
+                    '" title="See our inventory of ' +
+                    row.classification_name +
+                    ' vehicles">' +
+                    row.classification_name +
                     "</a>";
                 list += "</li>";
             });
@@ -81,24 +83,27 @@ Util.buildClassificationGrid = async function (data) {
 }
 
 Util.buildClassificationList = async function (classification_id = null) {
-    let data = await invModel.getClassifications()
-    let classificationList =
-        '<select name="classification_id" id="classificationList" required>'
-    classificationList += "<option value=''>Choose a Classification</option>"
-    data.rows.forEach((row) => {
-        classificationList += '<option value="' + row.classification_id + '"'
-        if (
-            classification_id != null &&
-            row.classification_id == classification_id
-        ) {
-            classificationList += " selected "
-        }
-        classificationList += ">" + row.classification_name + "</option>"
-    })
-    classificationList += "</select>"
-    return classificationList
-}
+    let data = await invModel.getClassifications(); // Fetch classifications
 
+    // Check if data is an array and has elements
+    if (!Array.isArray(data) || data.length === 0) {
+        throw new Error('No classifications found'); // Handle the case where classifications are not available
+    }
+
+    let classificationList = '<select name="classification_id" id="classificationList" required>';
+    classificationList += "<option value=''>Choose a Classification</option>";
+
+    data.forEach((row) => {
+        classificationList += `<option value="${row.classification_id}"`;
+        if (classification_id != null && row.classification_id == classification_id) {
+            classificationList += " selected";
+        }
+        classificationList += `>${row.classification_name}</option>`;
+    });
+
+    classificationList += "</select>";
+    return classificationList;
+};
 /* **************************************
 * Build the vehicle detail view HTML
 * ************************************ */
@@ -145,6 +150,48 @@ Util.buildVehicleDetailView = async function (vehicle) {
     }
 
     return detailView;
+}
+
+
+/* ****************************************
+* Middleware to check token validity
+**************************************** */
+Util.checkJWTToken = (req, res, next) => {
+    // Check if the JWT token is present in the cookies
+    if (req.cookies.jwt) {
+        // Verify the token using the secret
+        jwt.verify(
+            req.cookies.jwt,
+            process.env.ACCESS_TOKEN_SECRET,
+            function (err, accountData) {
+                if (err) {
+                    // If token verification fails (e.g., invalid or expired token)
+                    req.flash("notice", "Session expired. Please log in again.");
+                    res.clearCookie("jwt"); // Clear the JWT cookie
+                    return res.redirect("/account/login"); // Redirect to login page
+                }
+                // If token is valid, store the account data for further use
+                res.locals.accountData = accountData;
+                res.locals.loggedin = true; // Set loggedin to true
+                next(); // Proceed to the next middleware or route handler
+            }
+        );
+    } else {
+        // If no token is present, set loggedin to false and continue
+        res.locals.loggedin = false;
+        next();
+    }
+}
+/* ****************************************
+ *  Check Login
+ * ************************************ */
+Util.checkLogin = (req, res, next) => {
+    if (res.locals.loggedin) {
+        next()
+    } else {
+        req.flash("notice", "Please log in.")
+        return res.redirect("/account/login")
+    }
 }
 
 
