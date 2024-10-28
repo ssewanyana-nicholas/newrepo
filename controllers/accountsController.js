@@ -266,16 +266,20 @@ async function processAccountDeletion(req, res) {
     const deleteResult = await accountModel.deleteAccountById(account_id); // Call model function to delete account
 
     if (deleteResult) {
-      req.flash('notice', 'Account deleted successfully.');
+      // Clear the JWT cookie
+      res.clearCookie('jwt'); // Assumes the JWT token is stored in a cookie called 'jwt'
+
+      req.flash('notice', 'Account deleted successfully.'); // Success message
       res.redirect('/'); // Redirect to home or appropriate page
     } else {
-      throw new Error('Account deletion failed.');
+      throw new Error('Account deletion failed.'); // Handle failure case
     }
   } catch (error) {
-    req.flash('error_notice', 'An error occurred while deleting the account. Please try again.');
+    req.flash('error_notice', 'An error occurred while deleting the account. Please try again.'); // Error message
     res.redirect(`/account/delete/${account_id}`); // Redirect back to delete confirmation page
   }
 }
+
 
 
 

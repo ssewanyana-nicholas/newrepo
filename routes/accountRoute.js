@@ -53,8 +53,9 @@ router.post('/update-password',
 router.get('/delete/:account_id', utilities.handleErrors(accountsController.getAccountDeleteView));
 
 // Route to handle account deletion
-router.post('/delete/:account_id', accountsController.logout,
-    utilities.handleErrors(accountsController.processAccountDeletion));
+router.post('/delete/:account_id', utilities.handleErrors(accountsController.processAccountDeletion,
+    accountsController.logout
+));
 
 
 
