@@ -1,0 +1,60 @@
+<main class="account-update-main">
+    <!-- Display success flash message if exists -->
+    <% if (flash.notice && flash.notice.length> 0) { %>
+        <p class="flash-message alert alert-success">
+            <%= flash.notice[0] %> <!-- Access the first message in the array -->
+        </p>
+        <% } %>
+
+            <!-- Display error flash message if exists -->
+            <% if (flash.error_notice && flash.error_notice.length> 0) { %>
+                <p class="flash-message alert alert-danger">
+                    <%= flash.error_notice[0] %> <!-- Access the first message in the array -->
+                </p>
+                <% } %>
+
+                    <h2>Confirm Account Deletion</h2>
+                    <p>Are you sure you want to delete your account? This action is irreversible and will permanently
+                        remove your account and all associated data.</p>
+
+                    <!-- Form for confirming account deletion -->
+                    <form action="/account/delete/<%= accountData.account_id %>" method="POST"
+                        class="registration-form">
+                        <h3 class="registration-heading">Account Information</h3>
+
+                        <!-- First Name Field (read-only) -->
+                        <div class="registration-form-group">
+                            <label for="account_firstname" class="registration-label">First Name</label>
+                            <input type="text" id="account_firstname" name="account_firstname"
+                                class="registration-input" required value="<%= accountData.account_firstname %>"
+                                readonly>
+                        </div>
+
+                        <!-- Last Name Field (read-only) -->
+                        <div class="registration-form-group">
+                            <label for="account_lastname" class="registration-label">Last Name</label>
+                            <input type="text" id="account_lastname" name="account_lastname" class="registration-input"
+                                required value="<%= accountData.account_lastname %>" readonly>
+                        </div>
+
+                        <!-- Email Field (read-only) -->
+                        <div class="registration-form-group">
+                            <label for="account_email" class="registration-label">Email</label>
+                            <input type="email" id="account_email" name="account_email" class="registration-input"
+                                required value="<%= accountData.account_email %>" readonly>
+                        </div>
+
+                        <!-- Confirmation Checkbox -->
+                        <div class="deletion-confirmation">
+                            <label>
+                                <input type="checkbox" name="confirm_deletion" required>
+                                I confirm that I want to delete my account.
+                            </label>
+                        </div>
+
+                        <!-- Submit Button -->
+                        <button type="submit" class="registration-btn">Yes, delete my account</button>
+                        <p><a href="/account">Cancel</a></p> <!-- Link back to account management -->
+                    </form>
+                    
+</main>

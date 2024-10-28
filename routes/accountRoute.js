@@ -35,18 +35,28 @@ router.get('/',
     accountsController.accountManagementView);
 
 // GET route to deliver the account update view
-router.get('/update/:account_id', 
+router.get('/update/:account_id',
     utilities.handleErrors(accountsController.getAccountUpdateView));
 
 // POST route to process account updates
-router.post('/update/:account_id', 
-    regValidate.validateUpdate, 
+router.post('/update/:account_id',
+    regValidate.validateUpdate,
     utilities.handleErrors(accountsController.processAccountUpdate));
 
 // POST route to process password updates
-router.post('/update-password', 
-    regValidate.validatePassword, 
+router.post('/update-password',
+    regValidate.validatePassword,
     utilities.handleErrors(accountsController.processPasswordUpdate));
-    
+
+
+// Route to show the account deletion confirmation page
+router.get('/delete/:account_id', utilities.handleErrors(accountsController.getAccountDeleteView));
+
+// Route to handle account deletion
+router.post('/delete/:account_id', accountsController.logout,
+    utilities.handleErrors(accountsController.processAccountDeletion));
+
+
+
 module.exports = router;
 

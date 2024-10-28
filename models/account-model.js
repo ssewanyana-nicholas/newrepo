@@ -42,14 +42,14 @@ async function getAccountByEmail(account_email) {
 // Function to get account information based on account_id
 async function getAccountById(account_id) {
   try {
-      const result = await pool.query(
-          'SELECT * FROM account WHERE account_id = $1',
-          [account_id]
-      );
-      return result.rows[0];  // Return the first row, which contains the account data
+    const result = await pool.query(
+      'SELECT * FROM account WHERE account_id = $1',
+      [account_id]
+    );
+    return result.rows[0];  // Return the first row, which contains the account data
   } catch (error) {
-      console.error('Error fetching account by ID:', error);
-      throw error;  // Throw error to be handled by the calling function
+    console.error('Error fetching account by ID:', error);
+    throw error;  // Throw error to be handled by the calling function
   }
 }
 
@@ -83,6 +83,21 @@ async function updatePassword(account_id, hashedPassword) {
   }
 }
 
+// Function to delete an account by account_id
+async function deleteAccountById(account_id) {
+  try {
+    const result = await pool.query(
+      `DELETE FROM account 
+      WHERE account_id = $1 RETURNING *`,
+      [account_id]
+    );
+    return result.rowCount; // Returns 1 if deletion was successful
+  } catch (error) {
+    console.error('Error deleting account:', error);
+    throw new Error('Error deleting account');
+  }
+}
+
 
 module.exports = {
   registerAccount,
@@ -90,5 +105,6 @@ module.exports = {
   getAccountByEmail,
   getAccountById,
   updatePassword,
-  updateAccount
+  updateAccount,
+  deleteAccountById
 };

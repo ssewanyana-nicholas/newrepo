@@ -994,3 +994,277 @@ input:required:valid {
         /* Increase padding for better touch target */
     }
 }
+
+/* Account Body Styles */
+.account-body {
+    font-family: 'Arial', sans-serif;
+    /* Font for the account section */
+    background-color: #f4f4f4;
+    /* Light background for contrast */
+    margin: 0;
+    padding: 20px;
+    /* Padding around the account section */
+}
+
+/* Main Account Management Section */
+.account-main {
+    max-width: 800px;
+    /* Restrict width for better readability */
+    margin: 0 auto;
+    /* Center align */
+    padding: 20px;
+    background-color: #ffffff;
+    /* White background for the main content */
+    border-radius: 8px;
+    /* Rounded corners */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    /* Subtle shadow effect */
+}
+
+/* Headings */
+.account-main h1 {
+    font-size: 2.5rem;
+    /* Larger font for main heading */
+    color: #333;
+    /* Dark text for readability */
+    margin-bottom: 10px;
+    /* Space below */
+}
+
+.account-main h2 {
+    font-size: 1.8rem;
+    /* Subheading */
+    color: #555;
+    /* Slightly lighter text */
+}
+
+.account-main h3 {
+    font-size: 1.5rem;
+    /* Section heading */
+    color: #777;
+    /* Even lighter text */
+}
+
+/* Flash Message */
+.flash-message {
+    background-color: #e7f3fe;
+    /* Light blue background */
+    color: #31708f;
+    /* Dark blue text */
+    border: 1px solid #bce8f1;
+    /* Border to match background */
+    border-radius: 4px;
+    /* Rounded corners */
+    padding: 10px;
+    /* Padding around text */
+    margin-bottom: 20px;
+    /* Space below the flash message */
+}
+
+/* Error Message Styles */
+.error-list {
+    list-style-type: none;
+    /* Remove default list styling */
+    padding: 0;
+    /* Remove padding */
+    margin: 0;
+    /* Remove margin */
+}
+
+.error-item {
+    background-color: #f8d7da;
+    /* Light red background for errors */
+    color: #721c24;
+    /* Dark red text */
+    border: 1px solid #f5c6cb;
+    /* Border to match background */
+    border-radius: 4px;
+    /* Rounded corners */
+    padding: 10px;
+    /* Padding around text */
+    margin-bottom: 10px;
+    /* Space between error items */
+}
+
+/* Links */
+.account-main a {
+    text-decoration: none;
+    /* Remove underline */
+    color: #007bff;
+    /* Bootstrap primary color */
+    transition: color 0.3s;
+    /* Smooth transition */
+}
+
+.account-main a:hover {
+    color: #0056b3;
+    /* Darker shade on hover */
+}
+
+/* Delete Button */
+.delete-button {
+    display: inline-block;
+    /* Inline-block for padding */
+    background-color: #791c25;
+    /* Bootstrap danger color */
+    color: white;
+    /* White text */
+    padding: 10px 15px;
+    /* Padding around button */
+    border: none;
+    /* Remove border */
+    border-radius: 5px;
+    /* Rounded corners */
+    font-size: 1rem;
+    /* Font size */
+    cursor: pointer;
+    /* Pointer cursor */
+    transition: background-color 0.3s;
+    /* Smooth background transition */
+}
+
+.delete-button:hover {
+    background-color: #c82333;
+    color: white;
+    /* Darker red on hover */
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .account-main {
+        padding: 15px;
+        /* Reduce padding on smaller screens */
+    }
+
+    .account-main h1 {
+        font-size: 2rem;
+        /* Smaller font size for main heading */
+    }
+
+    .account-main h2 {
+        font-size: 1.5rem;
+        /* Smaller subheading */
+    }
+
+    .account-main h3 {
+        font-size: 1.3rem;
+        /* Smaller section heading */
+    }
+
+    .delete-button {
+        width: 100%;
+        /* Full width for button on smaller screens */
+        text-align: center;
+        /* Center text in the button */
+    }
+}
+
+@media (max-width: 480px) {
+    .account-main {
+        padding: 10px;
+        /* Further reduce padding */
+    }
+
+    .account-main h1 {
+        font-size: 1.5rem;
+        /* Further reduce font size */
+    }
+
+    .account-main h2,
+    .account-main h3 {
+        font-size: 1.2rem;
+        /* Further reduce subheading size */
+    }
+
+    .delete-button {
+        padding: 12px;
+        /* Increase button padding for touch targets */
+    }
+}
+
+/* Base styles for the confirmation heading */
+.account-update-main h2 {
+    font-size: 1.8em;
+    /* Base font size */
+    font-weight: bold;
+    /* Bold text */
+    color: #c0392b;
+    /* Dark red color */
+    margin-bottom: 15px;
+    /* Space below the heading */
+}
+
+/* Base styles for the confirmation message paragraph */
+.account-update-main p {
+    font-size: 1.1em;
+    /* Base font size */
+    color: #34495e;
+    /* Darker gray for better readability */
+    margin-bottom: 20px;
+    /* Space below the paragraph */
+}
+
+/* Base styles for the cancel button */
+.account-update-main a {
+    display: inline-block;
+    /* Allow padding and margins */
+    padding: 10px 20px;
+    /* Add padding */
+    background-color: #2980b9;
+    /* Blue background */
+    color: white;
+    /* White text color */
+    border-radius: 5px;
+    /* Rounded corners */
+    text-decoration: none;
+    /* Remove underline */
+    font-size: 1em;
+    /* Font size */
+    transition: background-color 0.3s;
+    /* Smooth transition for hover effect */
+}
+
+/* Hover effect for the cancel button */
+.account-update-main a:hover {
+    background-color: #3498db;
+    /* Lighter blue on hover */
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+    .account-update-main h2 {
+        font-size: 1.5em;
+        /* Smaller font size on smaller screens */
+    }
+
+    .account-update-main p {
+        font-size: 1em;
+        /* Adjust font size */
+    }
+
+    .account-update-main a {
+        padding: 8px 15px;
+        /* Adjust padding for smaller screens */
+        font-size: 0.9em;
+        /* Smaller font size for button */
+    }
+}
+
+@media (max-width: 480px) {
+    .account-update-main h2 {
+        font-size: 1.3em;
+        /* Further reduce font size */
+    }
+
+    .account-update-main p {
+        font-size: 0.9em;
+        /* Further adjust font size */
+    }
+
+    .account-update-main a {
+        padding: 7px 10px;
+        /* Further adjust padding */
+        font-size: 0.8em;
+        /* Even smaller font size for button */
+    }
+}

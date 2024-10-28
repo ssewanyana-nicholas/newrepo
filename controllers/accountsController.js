@@ -233,6 +233,50 @@ async function logout(req, res) {
   }
 }
 
+async function getAccountDeleteView(req, res, next) { // Added 'next' as parameter
+  try {
+    const account_id = req.params.account_id; // Extracting the account_id from the URL
+    const accountData = await accountModel.getAccountById(account_id); // Querying account info by ID
+
+    if (!accountData) {
+      req.flash('notice', 'Account not found.');
+      return res.redirect('/account/');
+    }
+
+    let nav = await utilities.getNav();
+    const flash = req.flash('notice'); // Get flash messages
+
+    res.render('account/accountDelete', {
+      title: 'Delete Account',
+      nav,
+      accountData, // Pass account data to the view for confirmation
+      errors: null,
+      flash
+    });
+  } catch (error) {
+    console.error('Error fetching account by ID:', error);
+    return next(error); // Pass the error to the error handler middleware
+  }
+}
+
+async function processAccountDeletion(req, res) {
+  const account_id = req.params.account_id; // Extracting the account_id from the URL
+
+  try {
+    const deleteResult = await accountModel.deleteAccountById(account_id); // Call model function to delete account
+
+    if (deleteResult) {
+      req.flash('notice', 'Account deleted successfully.');
+      res.redirect('/'); // Redirect to home or appropriate page
+    } else {
+      throw new Error('Account deletion failed.');
+    }
+  } catch (error) {
+    req.flash('error_notice', 'An error occurred while deleting the account. Please try again.');
+    res.redirect(`/account/delete/${account_id}`); // Redirect back to delete confirmation page
+  }
+}
+
 
 
 
@@ -246,7 +290,9 @@ module.exports = {
   getAccountUpdateView,
   processAccountUpdate,
   processPasswordUpdate,
-  logout
+  logout,
+  getAccountDeleteView,
+  processAccountDeletion
 
 
 };
